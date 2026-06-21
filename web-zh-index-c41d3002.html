@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常查询与对照 · 华体会</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5efe6;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2e2a24;
+            line-height: 1.75;
+            padding: 2rem 1.2rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉 — 信息卡片感 */
+        .hero-card {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.8rem;
+            border-radius: 32px 16px 32px 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(90, 70, 50, 0.06);
+            border-left: 6px solid #b7a48b;
+            position: relative;
+        }
+
+        .hero-card h1 {
+            font-size: 2rem;
+            font-weight: 450;
+            letter-spacing: 3px;
+            color: #4d3e2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-card .sub {
+            font-size: 0.95rem;
+            color: #7c6b57;
+            border-bottom: 1px dashed #d6cbbc;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-card p {
+            font-size: 1.05rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.5rem 0 2.2rem;
+        }
+
+        .card-item {
+            background: #fffcf7;
+            padding: 1.8rem 1.5rem;
+            border-radius: 24px 8px 24px 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e3d9ce;
+            transition: all 0.2s;
+        }
+
+        .card-item:hover {
+            background: #ffffff;
+            border-color: #b7a48b;
+            box-shadow: 0 6px 16px rgba(130, 100, 70, 0.06);
+        }
+
+        .card-item h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.6rem;
+            color: #3e3327;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-item h3::before {
+            content: "▹";
+            color: #a18b74;
+            font-size: 1.3rem;
+        }
+
+        .card-item p {
+            font-size: 0.95rem;
+            color: #4d4237;
+        }
+
+        /* 引用块 / 提示框 */
+        .quote-box {
+            background: #efe6db;
+            padding: 1.6rem 2rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 2rem 0 2.2rem;
+            border-left: 10px solid #cbb59a;
+            font-style: normal;
+            position: relative;
+        }
+
+        .quote-box p {
+            font-size: 1rem;
+            color: #2f2a23;
+        }
+
+        .quote-box .ink-mark {
+            display: block;
+            margin-top: 0.6rem;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #7f6f5b;
+        }
+
+        /* 适合人群 — 横向标签 */
+        .audience-wrap {
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .audience-wrap h2 {
+            font-size: 1.3rem;
+            font-weight: 450;
+            color: #3f3529;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #b7a48b;
+            padding-left: 1rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            background: #f3ece3;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #3d3327;
+            border: 1px solid #d9cdbe;
+            letter-spacing: 0.3px;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #faf6f0;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0 1.8rem;
+            border-bottom: 2px solid #d6c5b2;
+        }
+
+        .link-paragraph p {
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
+        }
+
+        .link-paragraph a {
+            color: #6f5b44;
+            text-decoration: none;
+            border-bottom: 1px solid #b7a48b;
+            font-weight: 500;
+            transition: border 0.15s;
+        }
+
+        .link-paragraph a:hover {
+            border-bottom-width: 3px;
+            color: #3f2f1d;
+        }
+
+        /* faq 摘要 */
+        .faq-mini {
+            margin: 2.8rem 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .faq-item {
+            background: transparent;
+            border-bottom: 1px solid #dbcebe;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-item summary {
+            font-weight: 450;
+            font-size: 1rem;
+            color: #3b3126;
+            cursor: default;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-item summary::before {
+            content: "⏐";
+            margin-right: 0.6rem;
+            color: #b7a48b;
+            font-weight: 300;
+        }
+
+        .faq-item p {
+            margin-top: 0.4rem;
+            font-size: 0.92rem;
+            color: #5a4d3d;
+            padding-left: 1.2rem;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4c4b1, transparent);
+            margin: 1.6rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #7b6c5a;
+            text-align: center;
+            margin-top: 2.5rem;
+            padding: 0.5rem 0;
+            border-top: 1px solid #e3d6c6;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.4rem 1rem;
+            }
+
+            .hero-card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .hero-card h1 {
+                font-size: 1.6rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .quote-box {
+                padding: 1.3rem 1.2rem;
+            }
+
+            .link-paragraph {
+                padding: 1.3rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero-card {
+                padding: 3rem 3rem;
+            }
+
+            .card-item {
+                padding: 2rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 主视觉 卡片式 -->
+    <div class="hero-card">
+        <h1>日常对照 · 华体会</h1>
+        <div class="sub">从查询到延伸 · 随手翻阅的生活索引</div>
+        <p>
+            有些信息不需要时刻记在脑中，却总在需要时反复查找。与其四处翻找，不如养成一种轻量的查阅习惯。
+            <strong>华体会</strong>提供的是一种安静、连续的参照环境——不强调快捷入口，只在乎当你需要时，能自然打开、对照、然后离开。
+        </p>
+    </div>
+
+    <!-- 用途卡片 两列 -->
+    <div class="card-grid">
+        <div class="card-item">
+            <h3>快速对照</h3>
+            <p>同一类概念、规则或说法，并列展示差异与相似点，适合日常翻阅、核对细节，减少来回跳转的疲劳感。</p>
+        </div>
+        <div class="card-item">
+            <h3>延伸阅读</h3>
+            <p>围绕一个话题自然延展出相关条目，像翻看一本主题手册，不刻意，不打断思路，适合碎片时间随手浏览。</p>
+        </div>
+        <div class="card-item">
+            <h3>场景查询</h3>
+            <p>无论是工作备忘、兴趣整理，还是临时需要核实某个说法，都能在逐层展开的内容里找到对应位置。</p>
+        </div>
+        <div class="card-item">
+            <h3>安静归档</h3>
+            <p>页面结构偏重梳理而非推送，不强调即时反馈，适合希望专注阅读、不想被多余交互干扰的时刻。</p>
+        </div>
+    </div>
+
+    <!-- 引用块提示 -->
+    <div class="quote-box">
+        <p>“查询这件事，最好的状态是：打开即有，读完即走。不需要记住路径，也不需要应付弹窗。剩下的事，交给对照本身。”</p>
+        <span class="ink-mark">—— 摘自一份浏览笔记</span>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-wrap">
+        <h2>适合人群</h2>
+        <div class="tag-list">
+            <span class="tag">习惯查阅资料的人</span>
+            <span class="tag">需要反复对照细节的工作者</span>
+            <span class="tag">偏好朴素排版的读者</span>
+            <span class="tag">想减少信息干扰的用户</span>
+            <span class="tag">对结构化内容感兴趣的人</span>
+            <span class="tag">日常延伸阅读爱好者</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入 a 标签) -->
+    <div class="link-paragraph">
+        <p>
+            如果你平时喜欢把一些常用信息放在手边，随时翻看，那么 <a href="https://web-zh-hth.com.cn">华体会</a> 或许正适合纳入你的日常浏览清单。
+            它不强调更新频率，也不堆砌动态，而是把常见的对照场景整理成清晰、可追溯的条目。
+        </p>
+        <p>
+            不论是核对某个表述、了解相关背景，还是在安静的环境里随手滚动几页，都不必担心被打断。
+            保持阅读的连贯，这本身就是一种舒适的信息获取方式。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2 style="font-weight:450; font-size:1.2rem; color:#3f3529; margin: 2rem 0 0.8rem; border-left:4px solid #b7a48b; padding-left:1rem;">常见疑问 · 摘要</h2>
+    <div class="faq-mini">
+        <div class="faq-item">
+            <summary>内容偏向哪个领域？</summary>
+            <p>覆盖日常概念、通用规则、以及各类延伸话题的对照整理，不限定单一领域，更接近生活与工作场景中的常见查询需求。</p>
+        </div>
+        <div class="faq-item">
+            <summary>页面会频繁变动吗？</summary>
+            <p>结构以稳定为主，内容会逐步补充和微调，但不追求频繁更新。更适合当作一个可以随时回来参考的固定位置。</p>
+        </div>
+        <div class="faq-item">
+            <summary>阅读时需要注册或登录吗？</summary>
+            <p>不需要。所有内容以页面形式直接呈现，没有账户系统，也不收集个人信息，打开即读。</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        页面内容仅供日常参考 · 保持质朴的对照习惯
+    </div>
+
+</body>
+</html>
