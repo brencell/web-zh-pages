@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皇冠体育 · 站点介绍与导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f4f6f9;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+        a {
+            color: #c73e2b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+        a:hover {
+            color: #982c1c;
+            border-bottom-color: #c73e2b;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #0b1a2b;
+            background-image: radial-gradient(circle at 20% 30%, #1b3145 0%, #08111f 100%);
+            color: #eef2f6;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+        .hero h1 span {
+            font-weight: 600;
+            color: #f0c27a;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #bcc9db;
+            max-width: 640px;
+            margin: 0 auto 0.5rem;
+            font-weight: 300;
+        }
+        .hero .tagline {
+            margin-top: 1.8rem;
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.06);
+            display: inline-block;
+            padding: 0.5rem 1.6rem;
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #d0dbe8;
+        }
+
+        /* 导航 */
+        .top-nav {
+            background: #0b1a2b;
+            border-bottom: 1px solid #1f3350;
+            padding: 0.6rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .top-nav .brand {
+            color: #f0c27a;
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .top-nav .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+        .top-nav .nav-links a {
+            color: #bcc9db;
+            border-bottom: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            padding: 0.25rem 0;
+        }
+        .top-nav .nav-links a:hover {
+            color: #f0c27a;
+            border-bottom: 1px solid #f0c27a;
+        }
+
+        /* 主体区域 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3.5rem;
+        }
+
+        /* 介绍区 */
+        .intro-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.5rem 2.8rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+        }
+        .intro-card h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #0b1a2b;
+            margin-bottom: 1rem;
+            border-left: 5px solid #c73e2b;
+            padding-left: 1rem;
+        }
+        .intro-card p {
+            margin-bottom: 1.2rem;
+            color: #2c3e50;
+        }
+        .intro-card .trust-note {
+            background: #f7f9fc;
+            border-radius: 16px;
+            padding: 1.2rem 1.8rem;
+            margin-top: 1.2rem;
+            border-left: 4px solid #c73e2b;
+            font-size: 0.95rem;
+            color: #1f2b3a;
+        }
+
+        /* 三个场景模块 */
+        .scenes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2.5rem 0 3rem;
+        }
+        .scene-card {
+            flex: 1 1 240px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+            border: 1px solid #e3e8ef;
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+        }
+        .scene-card .emoji-badge {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0b1a2b;
+            margin-bottom: 0.6rem;
+        }
+        .scene-card p {
+            color: #3a4b5e;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            margin: 2rem 0 2.5rem;
+            border: 1px solid #e3e8ef;
+        }
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #0b1a2b;
+            margin-bottom: 1.2rem;
+        }
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1f2b3a;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item p {
+            color: #3a4b5e;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* 提示区块 */
+        .info-box {
+            background: #f0f4fa;
+            border-radius: 18px;
+            padding: 1.5rem 2rem;
+            margin: 2.2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 0.8rem 1.5rem;
+            border: 1px solid #dce3ed;
+        }
+        .info-box .label {
+            font-weight: 500;
+            color: #0b1a2b;
+            background: #dce3ed;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+        .info-box .text {
+            flex: 1;
+            color: #1f2b3a;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #0b1a2b;
+            color: #9aabbf;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #1f3350;
+        }
+        .footer a {
+            color: #f0c27a;
+            border-bottom: none;
+        }
+        .footer a:hover {
+            color: #f5d89a;
+            border-bottom: 1px solid #f0c27a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 0.8rem 1rem;
+            }
+            .top-nav .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .intro-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .scenes {
+                flex-direction: column;
+            }
+            .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+            .info-box {
+                padding: 1.2rem 1.2rem;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="top-nav">
+    <div class="brand">皇冠体育</div>
+    <div class="nav-links">
+        <a href="#intro">介绍</a>
+        <a href="#scenes">场景</a>
+        <a href="#faq">说明</a>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>与 <span>皇冠体育</span> 一起</h1>
+    <p class="sub">简洁、清晰、值得信赖的线上体育资讯站点</p>
+    <div class="tagline">▸ 真实信息 · 平稳体验 · 用户视角</div>
+</section>
+
+<div class="container">
+
+    <!-- 介绍区 -->
+    <div class="intro-card" id="intro">
+        <h2>站点简介与可信说明</h2>
+        <p>
+            <a href="https://main-crownsports.com">皇冠体育</a> 是一个面向体育爱好者的信息聚合站点，内容覆盖多个主流运动项目、赛事动态以及日常训练参考。我们致力于提供相对客观、经过筛选的体育资讯，帮助用户更便捷地获取感兴趣的内容。
+        </p>
+        <p>
+            站内信息均来自公开可信渠道，并保持定期更新。无论是团队竞技还是个人项目，你都能在这里找到有条理的分类与引导。我们注重内容的准确性，但建议用户结合自身判断使用。
+        </p>
+        <div class="trust-note">
+            ⚡ 信赖的基础：信息出处明确，不夸大、不诱导。我们鼓励用户理性浏览，并把 <a href="https://main-crownsports.com">皇冠体育</a> 作为一个日常参考的窗口。
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes" id="scenes">
+        <div class="scene-card">
+            <span class="emoji-badge">🏀</span>
+            <h3>赛事追踪</h3>
+            <p>快速查看热门联赛、杯赛的日程与摘要，不再错过关键节点。页面结构清晰，适合赛前赛后查阅。</p>
+        </div>
+        <div class="scene-card">
+            <span class="emoji-badge">📋</span>
+            <h3>运动入门</h3>
+            <p>无论是新手还是资深爱好者，都能找到基础规则、术语解析以及简单的训练思路，内容踏实不浮夸。</p>
+        </div>
+        <div class="scene-card">
+            <span class="emoji-badge">🧭</span>
+            <h3>资讯导航</h3>
+            <p>分类浏览不同体育项目的动态，从足球到网球，从户外到室内运动，信息获取更直接。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary" id="faq">
+        <h2>常见说明</h2>
+        <div class="faq-item">
+            <strong>内容更新频率如何？</strong>
+            <p>常规赛事期间保持每日更新，非赛事阶段也会整理相关专题与回顾，尽量反映近期动态。</p>
+        </div>
+        <div class="faq-item">
+            <strong>信息是否经过核实？</strong>
+            <p>我们优先采用官方数据及主流媒体报道，并在页面注明参考来源。但仍建议用户交叉验证关键信息。</p>
+        </div>
+        <div class="faq-item">
+            <strong>可以使用手机浏览吗？</strong>
+            <p>站点针对移动设备做了适配，在手机和平板上的阅读体验与桌面端一致，无需额外缩放。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否收费或需要注册？</strong>
+            <p>目前网站内容完全开放浏览，不收取任何费用，也无需注册账号。保持简单，只为提供信息。</p>
+        </div>
+    </div>
+
+    <!-- 提示区块 -->
+    <div class="info-box">
+        <span class="label">💡 提醒</span>
+        <div class="text">
+            信息世界繁杂，保持理性判断是最好的工具。如果你对某项体育资讯特别感兴趣，不妨把 <a href="https://main-crownsports.com">皇冠体育</a> 加入书签，常来看看，也许每次都有新发现。
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>© 皇冠体育 · 信息聚合与导航 &nbsp;|&nbsp; 内容仅供参考，不构成任何建议</p>
+    <p style="margin-top: 0.4rem;"><a href="https://main-crownsports.com">皇冠体育</a> — 让体育资讯更近一步</p>
+</footer>
+
+</body>
+</html>
